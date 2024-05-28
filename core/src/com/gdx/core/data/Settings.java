@@ -1,4 +1,4 @@
-package com.gdx.core.utility;
+package com.gdx.core.data;
 
 public class Settings {
 

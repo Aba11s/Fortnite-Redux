@@ -10,7 +10,10 @@ import com.gdx.core.screen.stage.MenuStage;
 
 public class GameScreen extends ScreenAdapter {
 
+    boolean PAUSED = false;
+
     Float delta;
+    Float delta2;
     Integer SCREENWIDTH, SCREENHEIGHT;
     Core core;
 
@@ -18,7 +21,9 @@ public class GameScreen extends ScreenAdapter {
     OrthographicCamera debugCamera;
 
     Viewport viewport;
-    GameStage stage;
+    GameStage backStage;
+    GameStage objStage;
+    GameStage HUDStage;
 
     public GameScreen(Core core) {
         this.core = core;
@@ -30,8 +35,36 @@ public class GameScreen extends ScreenAdapter {
         this.debugCamera = core.debugCamera;
 
         this.viewport = core.viewport;
-        this.stage = new GameStage(viewport);
-        Gdx.input.setInputProcessor(stage);
+
+        this.backStage = new GameStage(viewport);
+        this.objStage = new GameStage(viewport);
+        this.HUDStage = new GameStage(viewport);
+        Gdx.input.setInputProcessor(HUDStage);
     }
+
+    public void update(float delta) {
+        this.delta = (!PAUSED) ? delta : 0; // if paused = delta time  = 0;
+    }
+
+    @Override
+    public void render(float delta) {
+        update(delta);
+
+
+    }
+
+    @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
+    public void dispose() {
+
+        backStage.dispose();
+        objStage.dispose();
+        HUDStage.dispose();
+    }
+
 
 }

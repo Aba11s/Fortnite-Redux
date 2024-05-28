@@ -34,7 +34,9 @@ public class MenuScreen extends ScreenAdapter {
         Gdx.input.setInputProcessor(stage);
     }
 
-    private void update() {
+    // Game logic updates
+    private void update(float delta) {
+        this.delta = delta;
         this.SCREENWIDTH = Gdx.graphics.getWidth();
         this.SCREENHEIGHT = Gdx.graphics.getHeight();
 
@@ -45,8 +47,7 @@ public class MenuScreen extends ScreenAdapter {
 
     @Override
     public void render(float delta) {
-        this.delta = delta;
-        update();
+        update(delta);
 
         stage.draw();
     }
