@@ -1,4 +1,4 @@
-package com.gdx.core.object.entity;
+package com.gdx.core.object;
 
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
@@ -27,16 +27,19 @@ public abstract class GameEntity extends Actor implements GameObject {
     protected Rectangle rect, hBox;
 
     public GameEntity(float x, float y, float width, float height, Vector2 initialDirection,
-                      Camera camera, Settings sets, Float delta) {
+                      Camera camera, Settings sets, Float delta) throws Exception {
 
+        // yeah
         this.camera = camera;
         this.sets = sets;
         this.delta = delta;
 
+        // init vectors
         this.position = new Vector2();
         this.center = new Vector2(x,y);
         this.direction = new Vector2(initialDirection);
 
+        // init hitBox rectangle
         this.hBox = new Rectangle();
         this.hBox.setCenter(center);
         this.hBox.setSize(width, height);
@@ -53,5 +56,13 @@ public abstract class GameEntity extends Actor implements GameObject {
     protected abstract void rotate(); // update rotation
 
     @Override
-    public abstract void draw(Batch batch, float parentAlpha);
+    public void update() {
+        rotate();
+        move();
+    }
+
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+
+    }
 }

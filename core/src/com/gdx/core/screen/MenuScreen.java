@@ -40,8 +40,12 @@ public class MenuScreen extends ScreenAdapter {
         this.SCREENWIDTH = Gdx.graphics.getWidth();
         this.SCREENHEIGHT = Gdx.graphics.getHeight();
 
-        if(Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)) {
+        if(Gdx.input.isTouched()) {
             core.setScreen(new GameScreen(core));
+        }
+
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            Gdx.app.exit();
         }
     }
 

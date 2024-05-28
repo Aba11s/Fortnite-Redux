@@ -1,4 +1,4 @@
-package com.gdx.core.object.projectile;
+package com.gdx.core.object;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.gdx.core.object.GameObject;
