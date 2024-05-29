@@ -1,19 +1,17 @@
 package com.gdx.core;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.gdx.core.utility.TextureManager;
 import com.gdx.core.screen.MenuScreen;
 
 public class Core extends Game {
+
+	public TextureManager TEXTURES;
 
 	float SCREENWIDTH, SCREENHEIGHT;
 	float delta;
@@ -30,6 +28,10 @@ public class Core extends Game {
 
 	@Override
 	public void create() {
+
+		// loads Textures
+		TEXTURES = new TextureManager();
+
 		SCREENWIDTH = Gdx.graphics.getWidth();
 		SCREENHEIGHT = Gdx.graphics.getHeight();
 

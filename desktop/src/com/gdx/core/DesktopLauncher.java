@@ -10,7 +10,9 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setWindowedMode(1366 ,768);
-		config.setTitle("Skibidi-Toilet");
+		config.useVsync(true);
+
+		config.setTitle("Fortnite Redux");
 		new Lwjgl3Application(new Core(), config);
 	}
 }

@@ -8,6 +8,8 @@ import com.gdx.core.Core;
 import com.gdx.core.screen.stage.GameStage;
 import com.gdx.core.screen.stage.MenuStage;
 
+import javax.sound.midi.SysexMessage;
+
 public class GameScreen extends ScreenAdapter {
 
     boolean PAUSED = false;
@@ -24,6 +26,7 @@ public class GameScreen extends ScreenAdapter {
     GameStage backStage;
     GameStage objStage;
     GameStage HUDStage;
+    GameStage PauseStage;
 
     public GameScreen(Core core) {
         this.core = core;
@@ -42,6 +45,7 @@ public class GameScreen extends ScreenAdapter {
         Gdx.input.setInputProcessor(HUDStage);
     }
 
+    // Logic updates
     public void update(float delta) {
         this.delta = (!PAUSED) ? delta : 0; // if paused = delta time  = 0;
     }
@@ -50,7 +54,9 @@ public class GameScreen extends ScreenAdapter {
     public void render(float delta) {
         update(delta);
 
-
+        backStage.draw();
+        objStage.draw();
+        HUDStage.draw();
     }
 
     @Override
@@ -60,7 +66,6 @@ public class GameScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-
         backStage.dispose();
         objStage.dispose();
         HUDStage.dispose();

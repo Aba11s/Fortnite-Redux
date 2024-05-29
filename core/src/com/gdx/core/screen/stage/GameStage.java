@@ -12,9 +12,7 @@ public class GameStage extends Stage {
     }
 
     public void update() {
-        for(Actor actor : getActors()) {
 
-        }
     }
 
     @Override
