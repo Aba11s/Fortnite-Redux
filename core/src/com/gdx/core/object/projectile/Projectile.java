@@ -8,8 +8,8 @@ import com.gdx.core.object.GameObject;
 
 public abstract class Projectile extends GameObject {
     public Projectile(float x, float y, float width, float height,
-                      Vector2 initialDirection, Camera camera, Settings sets, Float delta) {
+                      Vector2 initialDirection, Camera camera, Settings sets) {
 
-        super(x, y, width, height, initialDirection, camera, sets, delta);
+        super(x, y, width, height, initialDirection, camera, sets);
     }
 }

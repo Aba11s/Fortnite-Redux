@@ -6,12 +6,14 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.gdx.core.data.Settings;
 import com.gdx.core.utility.TextureManager;
 import com.gdx.core.screen.MenuScreen;
 
 public class Core extends Game {
 
 	public TextureManager TEXTURES;
+	public Settings sets;
 
 	float SCREENWIDTH, SCREENHEIGHT;
 	float delta;
@@ -28,6 +30,7 @@ public class Core extends Game {
 
 	@Override
 	public void create() {
+		sets = new Settings();
 
 		// loads Textures
 		TEXTURES = new TextureManager();

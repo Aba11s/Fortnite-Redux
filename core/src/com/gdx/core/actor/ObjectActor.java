@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import org.w3c.dom.Text;
+
 
 public class ObjectActor extends Actor {
 
@@ -20,11 +20,11 @@ public class ObjectActor extends Actor {
     float floatFrame = 0;
 
     // Single non-animated texture
-    public ObjectActor(Texture texture, Vector2 center, float scale, float rotation) {
+    public ObjectActor(TextureRegion region, Vector2 center, float scale, float rotation) {
         isAnimated = false;
 
-        this.region = new TextureRegion(texture);
-        this.sprite = new Sprite(regions[0][0]);
+        this.region = new TextureRegion(region);
+        this.sprite = new Sprite(this.region);
         this.sprite.setCenter(center.x, center.y);
         this.sprite.scale(scale);
         this.sprite.setRotation(rotation);
